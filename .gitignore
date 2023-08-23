@@ -1,4 +1,8 @@
 # Byte-compiled / optimized / DLL files
+	.DS_Store
+	._.DS_Store
+	._diabetes_kaggle_02.zip
+	._diabetes_prediction_dataset.csv
 __pycache__/
 *.py[cod]
 *$py.class
