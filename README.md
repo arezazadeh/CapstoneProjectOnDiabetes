@@ -4,6 +4,9 @@
 - [1.2 EDA](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#12-EDA)
     - [1.2.0 Correlation Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#120-correlation-matrix)
     - [1.2.1 Age Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#121Age-Analysis)
+    - [1.2.2 Gender Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#122gender-Analysis)
+    - [1.2.3 Hemoglobin Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#123-Hemoglobin-A1c-HbA1c-Level)
+    - [1.2.4 Blood Glucose Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#124Blood-Glucose-Level-Analysis)
     - 
 
 
@@ -137,7 +140,7 @@ The average age across all the entries is approximately 41.79 years.
 8. **max**: The oldest age in the dataset is 80 years.
 
 
-#### Age with Diabetes 
+* Age with Diabetes 
 <img src="images/age01.png">
 
 ### 1.2.2 Gender Analysis 
