@@ -3,10 +3,10 @@
 - [1.1 Features Being Used](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#11-Features-Being-Used)
 - [1.2 EDA](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#12-EDA)
     - [1.2.0 Correlation Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#120-correlation-matrix)
-    - [1.2.1 Age Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#121Age-Analysis)
-    - [1.2.2 Gender Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#122Gender-Analysis)
+    - [1.2.1 Age Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#121-Age-Analysis)
+    - [1.2.2 Gender Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#122-Gender-Analysis)
     - [1.2.3 Hemoglobin Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#123-Hemoglobin-A1c-HbA1c-Level)
-    - [1.2.4 Blood Glucose Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#124Blood-Glucose-Level-Analysis)
+    - [1.2.4 Blood Glucose Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#124-Blood-Glucose-Level-Analysis)
     - 
 
 
