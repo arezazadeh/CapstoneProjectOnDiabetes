@@ -140,7 +140,7 @@ The average age across all the entries is approximately 41.79 years.
 8. **max**: The oldest age in the dataset is 80 years.
 
 
-* Age with Diabetes 
+* **Age with Diabetes** 
 <img src="images/age01.png">
 
 ### 1.2.2 Gender Analysis 
@@ -153,10 +153,10 @@ The average age across all the entries is approximately 41.79 years.
 
 ### 1.2.3 Hemoglobin A1c (HbA1c) Level 
 
-* HbA1c Level Density Plot 
+* **HbA1c Level Density Plot**
 <img src="images/hba_density_plt.png">
 
-* Statistical Testing For HbA1c Level For Both Diabetes And Non-Diabetes 
+* **Statistical Testing For HbA1c Level For Both Diabetes And Non-Diabetes** 
 
     ```python
     --------------------------------------------------
@@ -181,7 +181,7 @@ The average age across all the entries is approximately 41.79 years.
 
     Given the p-value of \(0.0\) in our t-test and this confidence interval that doesn't contain zero, it's safe to say     that the difference in means is statistically significant. Therefore, we have strong evidence to conclude that the  average HbA1c levels are indeed different between the two groups.
 
-* Pie Chart For HbA1c Level vs. Diabetes and Non-Diabetes
+* **Pie Chart For HbA1c Level vs. Diabetes and Non-Diabetes**
 
     <img src="images/hba_pie01.png">
 
@@ -189,7 +189,7 @@ The average age across all the entries is approximately 41.79 years.
 * Blood Glucose Level Desity Plot 
     <img src="images/bg_density.png">
 
-* Statistical Testing for Blood Glucose Level 
+* **Statistical Testing for Blood Glucose Level**
     ```python 
     --------------------------------------------------
     t-statistic: 145.3
@@ -215,7 +215,7 @@ The average age across all the entries is approximately 41.79 years.
 
     Given the high t-statistic and the p-value of nearly zero, we can confidently reject the null   hypothesis. This means that there is a statistically significant difference in the mean blood     glucose levels between people with diabetes and those without diabetes in your dataset.
 
-* Pie Chart For Blood Glucose Level vs. Diabetes and Non-Diabetes
+* **Pie Chart For Blood Glucose Level vs. Diabetes and Non-Diabetes**
 
 <img src="images/bg_pie.png">
 
