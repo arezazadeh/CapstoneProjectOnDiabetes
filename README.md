@@ -73,6 +73,9 @@ Each of these features provides valuable health-related information. In the cont
 
 ## 1.1.0 Correlation Matrix 
 
+<img src="images/corr.png">
+
+
 Here's what we can infer from the correlation matrix:
 
 ### Age
