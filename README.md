@@ -1,16 +1,16 @@
 ## Table of Contents: 
-- [Problem Statement](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#Problem-Statement)
-- [Features Being Used](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#Features-Being-Used)
-- [1.1 EDA](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#EDA)
-    - [1.1.0 Correlation Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#110-correlation-matrix)
-    - [1.1.1 Age Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#Age-Univariate-and-BivariateAnalysis)
+- [1.0 Problem Statement](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#10-Problem-Statement)
+- [1.1 Features Being Used](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#11-Features-Being-Used)
+- [1.2 EDA](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#12-EDA)
+    - [1.2.0 Correlation Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#120-correlation-matrix)
+    - [1.2.1 Age Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#121Age-Univariate-and-BivariateAnalysis)
 
 
 
 
 
 
-## Problem Statement
+## 1.0 Problem Statement
 
 1. **You are diabetic**: This is a direct classification result when the probability of the diabetic class is above a certain threshold, often 0.5 for binary classification. However, this threshold can be adjusted based on the specific needs of the model and the business or medical requirements.
 
@@ -26,7 +26,7 @@ Using the model to predict class probabilities using the `predict_proba` method.
 
 
 
-## Features Being Used
+## 1.1 Features Being Used
 
 Certainly! Here's a brief description of each feature:
 
@@ -71,35 +71,37 @@ Each of these features provides valuable health-related information. In the cont
 
 
 
-## 1.1.0 Correlation Matrix 
+## 1.2 EDA
+
+### 1.2.0 Correlation Matrix 
 
 <img src="images/corr.png">
 
 
 Here's what we can infer from the correlation matrix:
 
-### Age
+ #### Age
 - **Moderate positive correlation with BMI (0.34)**: As age increases, BMI also tends to increase.
 - **Low positive correlations with hypertension (0.26), heart disease (0.24), and diabetes (0.26)**: Older people are more likely to have these conditions, but the correlation isn't very strong.
   
-### Hypertension
+#### Hypertension
 - **Low positive correlations with age (0.26), diabetes (0.20), and BMI (0.15)**: People with hypertension are slightly more likely to be older, diabetic, and have a higher BMI.
   
-### Heart Disease
+#### Heart Diseas
 - **Low positive correlations with age (0.24) and diabetes (0.17)**: Older individuals and those with diabetes are slightly more likely to have heart disease.
   
-### BMI
+#### BMI
 - **Moderate positive correlation with age (0.34) and low positive correlation with diabetes (0.21)**: Higher BMI is more common in older individuals and those with diabetes.
   
-### HbA1c Level
+#### HbA1c Level
 - **Moderate positive correlation with diabetes (0.41)**: Higher levels of HbA1c are strongly associated with diabetes.
 - **Low positive correlation with blood glucose level (0.17)**: Higher levels of HbA1c are somewhat associated with higher blood glucose levels.
   
-### Blood Glucose Level
+#### Blood Glucose Level
 - **Moderate positive correlation with diabetes (0.42)**: Higher blood glucose levels are strongly associated with diabetes.
 - **Low positive correlation with HbA1c level (0.17)**: Higher blood glucose levels are somewhat associated with higher HbA1c levels.
   
-### Diabetes
+#### Diabetes
 - **Moderate positive correlation with HbA1c level (0.41) and blood glucose level (0.42)**: People with diabetes are likely to have higher levels of HbA1c and blood glucose.
 
 To summarize, the strongest correlations we have are between diabetes and HbA1c levels, and between diabetes and blood glucose levels. These could be key features if we are looking to predict or understand diabetes in this dataset. Age and BMI also show moderate positive correlations with diabetes.
