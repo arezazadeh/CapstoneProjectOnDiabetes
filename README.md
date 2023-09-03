@@ -2,7 +2,7 @@
 - [Problem Statement](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#Problem-Statement)
 - [Features Being Used](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#Features-Being-Used)
 - [1.1 EDA](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#EDA)
-    - [1.1.0 Correlation Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#1.1.0-correlation-matrix)
+    - [1.1.0 Correlation Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#110-correlation-matrix)
     - [1.1.1 Age Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#Age-Univariate-and-BivariateAnalysis)
 
 
