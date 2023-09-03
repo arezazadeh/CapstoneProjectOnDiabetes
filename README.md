@@ -3,7 +3,8 @@
 - [1.1 Features Being Used](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#11-Features-Being-Used)
 - [1.2 EDA](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#12-EDA)
     - [1.2.0 Correlation Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#120-correlation-matrix)
-    - [1.2.1 Age Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#121Age-Univariate-and-BivariateAnalysis)
+    - [1.2.1 Age Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#121Age-Analysis)
+    - 
 
 
 
@@ -106,4 +107,112 @@ Here's what we can infer from the correlation matrix:
 
 To summarize, the strongest correlations we have are between diabetes and HbA1c levels, and between diabetes and blood glucose levels. These could be key features if we are looking to predict or understand diabetes in this dataset. Age and BMI also show moderate positive correlations with diabetes.
 
+
+### 1.2.1 Age Analysis 
+
+```python
+count    96146.000000
+mean        41.794326
+std         22.462948
+min          0.080000
+25%         24.000000
+50%         43.000000
+75%         59.000000
+max         80.000000
+Name: age, dtype: float64
+```
+
+The average age across all the entries is approximately 41.79 years.
+
+3. **std**: The standard deviation, which is a measure of the amount of variation or dispersion in the set of values, is approximately 22.46 years. This suggests that most of the ages lie within 22.46 years above or below the mean age (41.79 years).
+
+4. **min**: The youngest age in the dataset is 0.08 years, which is likely a baby of about a month old (around 29 days).
+
+5. **25% (First Quartile)**: 25% of the people in the dataset are younger than 24 years. This is the age below which a quarter of the data falls.
+
+6. **50% (Median)**: The median age, or the age at which half of the data points are above and half are below, is 43 years.
+
+7. **75% (Third Quartile)**: 75% of the people in the dataset are younger than 59 years. This means that three-quarters of the data falls below this age, and one-quarter of the data is above it.
+
+8. **max**: The oldest age in the dataset is 80 years.
+
+
+#### Age with Diabetes 
+<img src="images/age01.png">
+
+### 1.2.2 Gender Analysis 
+
+* Count of Male And Female in the Dataset
+<img src="images/gender01.png">
+
+* Gender Analysis For Both Diabetes and Non-Diabetes 
+<img src='images/gender02.png'>
+
+### 1.2.3 Hemoglobin A1c (HbA1c) Level 
+
+* HbA1c Level Density Plot 
+<img src="images/hba_density_plt.png">
+
+* Statistical Testing For HbA1c Level For Both Diabetes And Non-Diabetes 
+
+    ```python
+    --------------------------------------------------
+    t-statistic: 137.92
+    p-value: 0.0
+    Confidence interval: [1.51, 1.56]
+    --------------------------------------------------
+    ```
+    The results suggest a very strong statistical difference between the two groups:
+
+    - **t-statistic**: The t-statistic of approximately 138.28 is very high, which suggests a large difference in the   means of the two groups relative to the variability within the groups.
+
+    - **p-value**: A p-value of 0.0 is indicative of the results being extremely statistically significant. This means  that the likelihood of observing such extreme differences in "HbA1c_level" between the two groups (one with  "diabetes" equal to 1 and the other with "diabetes" equal to 0) purely by chance is virtually zero.
+
+    Given these results, we would reject the null hypothesis, which assumes that there's no difference between the two  groups. This indicates that there is a statistically significant difference in "HbA1c_level" between the group with  "diabetes" equal to 1 and the group with "diabetes" equal to 0.
+
+    The confidence interval we've calculated suggests that if the underlying population from which your samples are     drawn were subject to many additional samples, approximately 95% of those calculated intervals would contain the    true difference in means between the two populations.
+
+    The 95% confidence interval for the difference in mean HbA1c levels between the two groups (one with diabetes and   one without) is \([1.5145, 1.5619]\).
+
+    What this means is that we can be 95% confident that the true difference in average HbA1c levels between people     with diabetes and people without diabetes in the overall population will fall within this range.
+
+    Given the p-value of \(0.0\) in our t-test and this confidence interval that doesn't contain zero, it's safe to say     that the difference in means is statistically significant. Therefore, we have strong evidence to conclude that the  average HbA1c levels are indeed different between the two groups.
+
+* Pie Chart For HbA1c Level vs. Diabetes and Non-Diabetes
+
+    <img src="images/hba_pie01.png">
+
+### 1.2.4 Blood Glucose Level Analysis 
+* Blood Glucose Level Desity Plot 
+    <img src="images/bg_density.png">
+
+* Statistical Testing for Blood Glucose Level 
+    ```python 
+    --------------------------------------------------
+    t-statistic: 145.3
+    p-value: 0.0
+    Confidence interval: [59.94, 62.48]
+    --------------------------------------------------
+    ```
+    **Testing whether the mean blood glucose level differs between people with diabetes (`bg_diabetes`)     and those without diabetes (`bg_no_diabetes`).**
+
+    ### t-statistic:
+
+    The t-statistic is a measure of how many standard errors the sample means of the two groups are     apart. A larger absolute value of the t-statistic indicates that the difference between the means is    more significant.
+
+    - **t-statistic: 146.16**: The t-statistic is very high, indicating that the means of blood glucose     levels in the two groups are significantly different from each other.
+
+    ### p-value:
+
+    The p-value is a measure of the evidence against the null hypothesis, which in this case is that    there's no difference between the two groups.
+
+    - **p-value: 0.0**: A p-value of 0.0 means that the likelihood of observing such extreme differences    between the groups under the assumption that they are the same (the null hypothesis) is virtually  zero. 
+
+    ### Summary:
+
+    Given the high t-statistic and the p-value of nearly zero, we can confidently reject the null   hypothesis. This means that there is a statistically significant difference in the mean blood     glucose levels between people with diabetes and those without diabetes in your dataset.
+
+* Pie Chart For Blood Glucose Level vs. Diabetes and Non-Diabetes
+
+<img src="images/bg_pie.png">
 
