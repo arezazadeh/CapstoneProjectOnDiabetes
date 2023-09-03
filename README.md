@@ -4,7 +4,7 @@
 - [1.2 EDA](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#12-EDA)
     - [1.2.0 Correlation Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#120-correlation-matrix)
     - [1.2.1 Age Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#121Age-Analysis)
-    - [1.2.2 Gender Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#122gender-Analysis)
+    - [1.2.2 Gender Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#122Gender-Analysis)
     - [1.2.3 Hemoglobin Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#123-Hemoglobin-A1c-HbA1c-Level)
     - [1.2.4 Blood Glucose Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#124Blood-Glucose-Level-Analysis)
     - 
@@ -111,7 +111,7 @@ Here's what we can infer from the correlation matrix:
 To summarize, the strongest correlations we have are between diabetes and HbA1c levels, and between diabetes and blood glucose levels. These could be key features if we are looking to predict or understand diabetes in this dataset. Age and BMI also show moderate positive correlations with diabetes.
 
 
-### 1.2.1 Age Analysis 
+### 1.2.1 Age Analysis
 
 ```python
 count    96146.000000
@@ -143,7 +143,7 @@ The average age across all the entries is approximately 41.79 years.
 * **Age with Diabetes** 
 <img src="images/age01.png">
 
-### 1.2.2 Gender Analysis 
+### 1.2.2 Gender Analysis
 
 * Count of Male And Female in the Dataset
 <img src="images/gender01.png">
