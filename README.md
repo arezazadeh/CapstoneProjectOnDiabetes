@@ -7,7 +7,15 @@
     - [1.2.2 Gender Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#122-Gender-Analysis)
     - [1.2.3 Hemoglobin Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#123-Hemoglobin-A1c-HbA1c-Level)
     - [1.2.4 Blood Glucose Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#124-Blood-Glucose-Level-Analysis)
-    - 
+- [1.3 Models](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#124-Models)
+    - [1.3.1 Models Used For Training](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#131-Models-that-we-have-used-for-training)
+    - [1.3.2 GridSearchCV ColumnTransformer and Pipeline](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#132-Column-Transformers,-Pipeline-and-RandomizedGridSearchCV)
+    - [1.3.3 Confusion Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#133-Confusion-Matrix-For-The-Above-Models)
+    - [1.3.4 Analysing Model Performance](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#133-Analyzing-Model-Performance-Based-On-The-Confusion-Matrix)
+    - [1.3.4 Analysing Model Performance](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#133-Analyzing-Model-Performance-Based-On-The-Confusion-Matrix)
+
+    
+    
 
 
 
@@ -219,3 +227,93 @@ The average age across all the entries is approximately 41.79 years.
 
 <img src="images/bg_pie.png">
 
+## 1.3 Models 
+
+### 1.3.1 Models that we have used for training:
+
+    1. LogisticRegression
+    2. DecisionTreeClassifier
+    3. RandomForest*
+    4. XGBoost
+    5. AdaBoost
+    6. GradianBoost
+    7. GaussianNB
+
+### 1.3.2 Column Transformers, Pipeline and RandomizedGridSearchCV
+
+* Standardizing the `"age", "bmi", "HbA1c_level", "blood_glucose_level"`
+* Applying PolynomialFeatures to the Standardized Columns 
+* Applying OneHotEncoding to `"gender"` and `"smoking_history"`
+* Since this dataset is highly imbalaced, Using `SMOTE` technique to create a balanced class on training dataset (This technique   will increase the number of minority classes)
+* Applying the above the GridSearchCV with 5 Cross Validation with `recall` Scoring 
+
+
+### 1.3.3 Confusion Matrix For The Above Models
+
+<img src="images/confusion_matrix.png">
+
+### 1.3.4 Analyzing Model Performance Based On The Confusion Matrix:
+
+1. **RandomForest** and **GaussianNB** have the highest number of True Negatives (16324 and 16363 respectively), indicating that they are quite good at identifying the negative class. However, RandomForest has a lower number of False Negatives and more True Positives compared to GaussianNB.
+
+2. **LogisticRegression** and **DecisionTree** have balanced performance with a lower number of False Positives (2066 and 2118, respectively) compared to other models like AdaBoost and GradientBoost.
+
+3. **AdaBoost** and **GradientBoost** have a higher number of False Positives (2816 and 3669, respectively), meaning they are more likely to misclassify negative instances as positive.
+
+4. **GaussianNB** has a significantly higher number of False Negatives (655), meaning it's not as effective at capturing positive instances as the other models.
+
+### Sensitivity (Recall):
+
+- If identifying True Positives is critical, then **AdaBoost** and **GradientBoost** do the best job, as they have the highest numbers of True Positives (1615 and 1591).
+
+### Specificity:
+
+- If avoiding False Positives is important, then **RandomForest** and **GaussianNB** are your best bet, with RandomForest slightly edging out due to a lower number of False Positives (1185 vs 1146).
+
+### Balanced Performance:
+
+- **LogisticRegression** seems to provide a more balanced performance, with a high number of True Negatives and a comparatively lower number of False Positives.
+
+### Error Rates:
+
+- **GradientBoost** has the highest number of False Positives (3669), making it more prone to Type I errors.
+- **GaussianNB** has the highest number of False Negatives (655), making it more prone to Type II errors.
+
+Note: This is a simplistic analysis. It's often good to look at other metrics like F1 Score, ROC AUC, and precision-recall curves for a more complete picture.
+
+
+### Reducing False Negative
+In a medical context like diabetes diagnosis, reducing False Negatives (FN) is crucial because a FN means that a patient who actually has diabetes is wrongly classified as not having it, which could lead to a lack of treatment and severe health risks. Here's how the models fare in terms of minimizing FN:
+
+### False Negatives (Lower is Better):
+1. **AdaBoost**: 106
+2. **LogisticRegression**: 135
+3. **GradientBoost**: 130
+4. **XGBoost**: 158
+5. **DecisionTree**: 176
+6. **RandomForest**: 259
+7. **GaussianNB**: 655
+
+**AdaBoost** has the lowest number of False Negatives (106), followed closely by **LogisticRegression** and **GradientBoost**. This makes these models the most suitable for minimizing the risk of missing actual positive cases of diabetes.
+
+### Trade-offs:
+
+1. **AdaBoost**: Even though it has the lowest FN, it has a higher number of False Positives (2816). Depending on the application, the cost of FP might be worth the gain in reducing FN.
+
+2. **RandomForest** and **GaussianNB**: They have excellent True Negative counts but are the worst performers in terms of FN. For a medical application, these might not be the best choices.
+
+3. **LogisticRegression**: Provides a balanced performance but still has room for improvement in reducing FN.
+
+### Recommendations:
+
+1. **Fine-Tuning**: For the models with the lowest FN, like AdaBoost, you could consider fine-tuning hyperparameters to see if you can reduce FN even more without significantly affecting other metrics.
+   
+2. **Cost-Sensitive Learning**: Implement cost-sensitive learning where the misclassification cost for FN is higher than for FP.
+
+3. **Ensemble Methods**: Combining predictions from models that have low FN could potentially result in an even lower overall FN.
+
+4. **Class Weighting or Resampling**: Given the importance of correctly identifying positive cases, using techniques like class weighting or oversampling the positive class could also be helpful.
+
+5. **Additional Features or Data**: Sometimes additional information can help the model better separate the classes.
+
+Remember that in medical contexts, it's not only about the model's statistical performance but also about how clinicians will use this information. Therefore, domain expertise is crucial in interpreting these results.
