@@ -11,7 +11,7 @@
     - [1.3.1 Models Used For Training](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#131-Models-used-for-training)
     - [1.3.2 GridSearchCV ColumnTransformer and Pipeline](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#132-Column-Transformers-Pipeline-and-RandomizedGridSearchCV)
     - [1.3.3 Confusion Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#133-Confusion-Matrix-For-The-Above-Models)
-    - [1.3.4 Analysing Model Performance](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#133-Analyzing-Model-Performance-Based-On-The-Confusion-Matrix)
+    - [1.3.4 Analysing Model Performance](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#134-Analyzing-Model-Performance-Based-On-The-Confusion-Matrix)
 
     
     
@@ -261,7 +261,7 @@ The average age across all the entries is approximately 41.79 years.
 
 4. **GaussianNB** has a significantly higher number of False Negatives (655), meaning it's not as effective at capturing positive instances as the other models.
 
-### Sensitivity (Recall):
+#### Sensitivity (Recall):
 
 - If identifying True Positives is critical, then **AdaBoost** and **GradientBoost** do the best job, as they have the highest numbers of True Positives (1615 and 1591).
 
@@ -269,7 +269,7 @@ The average age across all the entries is approximately 41.79 years.
 
 - If avoiding False Positives is important, then **RandomForest** and **GaussianNB** are your best bet, with RandomForest slightly edging out due to a lower number of False Positives (1185 vs 1146).
 
-### Balanced Performance:
+#### Balanced Performance:
 
 - **LogisticRegression** seems to provide a more balanced performance, with a high number of True Negatives and a comparatively lower number of False Positives.
 
@@ -281,7 +281,7 @@ The average age across all the entries is approximately 41.79 years.
 Note: This is a simplistic analysis. It's often good to look at other metrics like F1 Score, ROC AUC, and precision-recall curves for a more complete picture.
 
 
-### Reducing False Negative
+#### Reducing False Negative
 In a medical context like diabetes diagnosis, reducing False Negatives (FN) is crucial because a FN means that a patient who actually has diabetes is wrongly classified as not having it, which could lead to a lack of treatment and severe health risks. Here's how the models fare in terms of minimizing FN:
 
 ### False Negatives (Lower is Better):
@@ -295,7 +295,7 @@ In a medical context like diabetes diagnosis, reducing False Negatives (FN) is c
 
 **AdaBoost** has the lowest number of False Negatives (106), followed closely by **LogisticRegression** and **GradientBoost**. This makes these models the most suitable for minimizing the risk of missing actual positive cases of diabetes.
 
-### Trade-offs:
+#### Trade-offs:
 
 1. **AdaBoost**: Even though it has the lowest FN, it has a higher number of False Positives (2816). Depending on the application, the cost of FP might be worth the gain in reducing FN.
 
@@ -303,7 +303,7 @@ In a medical context like diabetes diagnosis, reducing False Negatives (FN) is c
 
 3. **LogisticRegression**: Provides a balanced performance but still has room for improvement in reducing FN.
 
-### Recommendations:
+#### Recommendations:
 
 1. **Fine-Tuning**: For the models with the lowest FN, like AdaBoost, you could consider fine-tuning hyperparameters to see if you can reduce FN even more without significantly affecting other metrics.
    
