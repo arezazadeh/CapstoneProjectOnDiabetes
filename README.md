@@ -39,15 +39,12 @@
 
 **Using Selected/Best Model with Probabilities:**
 
-Using the model to predict class probabilities using the `predict_proba` method. This will provide probabilities for each class, and in the context of a binary problem like yours, the output will have two columns: the first column represents the probability of the "non-diabetic" class, and the second represents the probability of the "diabetic" class.
-
-**to utilize models to analyze diabetes and non diabetes patients to find out what are the leading causes for diabetes**
+Using the model to predict class probabilities using the `predict_proba` method. This will provide probabilities for each class, and in the context of a binary problem, the output will have two columns: the first column represents the probability of the "non-diabetic" class, and the second represents the probability of the "diabetic" class.
 
 
 
 ## 1.1 Features Being Used
 
-Certainly! Here's a brief description of each feature:
 
 1. **gender**: 
     - Represents the biological sex of the individual.
@@ -101,7 +98,7 @@ Here's what we can infer from the correlation matrix:
 
  #### Age
 - **Moderate positive correlation with BMI (0.34)**: As age increases, BMI also tends to increase.
-- **Low positive correlations with hypertension (0.26), heart disease (0.24), and diabetes (0.26)**: Older people are more likely to have these conditions, but the correlation isn't very strong.
+- **Low positive correlations with hypertension (0.26), heart disease (0.24), and diabetes (0.26)**: Older people are more likely to have these conditions, but the correlation isn't strong.
   
 #### Hypertension
 - **Low positive correlations with age (0.26), diabetes (0.20), and BMI (0.15)**: People with hypertension are slightly more likely to be older, diabetic, and have a higher BMI.
@@ -110,7 +107,7 @@ Here's what we can infer from the correlation matrix:
 - **Low positive correlations with age (0.24) and diabetes (0.17)**: Older individuals and those with diabetes are slightly more likely to have heart disease.
   
 #### BMI
-- **Moderate positive correlation with age (0.34) and low positive correlation with diabetes (0.21)**: Higher BMI is more common in older individuals and those with diabetes.
+- **Moderate positive correlation with age (0.34) and low positive correlation with diabetes (0.21)**: Higher BMI is more common in older individuals with diabetes.
   
 #### HbA1c Level
 - **Moderate positive correlation with diabetes (0.41)**: Higher levels of HbA1c are strongly associated with diabetes.
@@ -144,7 +141,7 @@ The average age across all the entries is approximately 41.79 years.
 
 3. **std**: The standard deviation, which is a measure of the amount of variation or dispersion in the set of values, is approximately 22.46 years. This suggests that most of the ages lie within 22.46 years above or below the mean age (41.79 years).
 
-4. **min**: The youngest age in the dataset is 0.08 years, which is likely a baby of about a month old (around 29 days).
+4. **min**: The youngest age in the dataset is 0.08 years, which is a baby of about a month old (around 29 days).
 
 5. **25% (First Quartile)**: 25% of the people in the dataset are younger than 24 years. This is the age below which a quarter of the data falls.
 
@@ -182,26 +179,26 @@ The average age across all the entries is approximately 41.79 years.
     ```
     The results suggest a very strong statistical difference between the two groups:
 
-    - **t-statistic**: The t-statistic of approximately 138.28 is very high, which suggests a large difference in the   means of the two groups relative to the variability within the groups.
+    - **t-statistic**: The t-statistic of approximately 138.28 is very high, which suggests a large difference in the means of the two groups relative to the variability within the groups.
 
     - **p-value**: A p-value of 0.0 is indicative of the results being extremely statistically significant. This means  that the likelihood of observing such extreme differences in "HbA1c_level" between the two groups (one with  "diabetes" equal to 1 and the other with "diabetes" equal to 0) purely by chance is virtually zero.
 
-    Given these results, we would reject the null hypothesis, which assumes that there's no difference between the two  groups. This indicates that there is a statistically significant difference in "HbA1c_level" between the group with  "diabetes" equal to 1 and the group with "diabetes" equal to 0.
+    Given these results, we would reject the null hypothesis, which assumes that there's no difference between the two groups. This indicates that there is a statistically significant difference in "HbA1c_level" between the group with  "diabetes" equal to 1 and the group with "diabetes" equal to 0.
 
-    The confidence interval we've calculated suggests that if the underlying population from which your samples are     drawn were subject to many additional samples, approximately 95% of those calculated intervals would contain the    true difference in means between the two populations.
+    The confidence interval we've calculated suggests that if the underlying population from which samples are drawn were subject to many additional samples, approximately 95% of those calculated intervals would contain the true difference in means between the two populations.
 
-    The 95% confidence interval for the difference in mean HbA1c levels between the two groups (one with diabetes and   one without) is \([1.5145, 1.5619]\).
+    The 95% confidence interval for the difference in mean HbA1c levels between the two groups (one with diabetes and one without) is \([1.5145, 1.5619]\).
 
-    What this means is that we can be 95% confident that the true difference in average HbA1c levels between people     with diabetes and people without diabetes in the overall population will fall within this range.
+    What this means is that we can be 95% confident that the true difference in average HbA1c levels between people with diabetes and people without diabetes in the overall population will fall within this range.
 
-    Given the p-value of \(0.0\) in our t-test and this confidence interval that doesn't contain zero, it's safe to say     that the difference in means is statistically significant. Therefore, we have strong evidence to conclude that the  average HbA1c levels are indeed different between the two groups.
+    Given the p-value of \(0.0\) in our t-test and this confidence interval that doesn't contain zero, it's safe to say that the difference in means is statistically significant. Therefore, we have strong evidence to conclude that the  average HbA1c levels are indeed different between the two groups.
 
 * **Pie Chart For HbA1c Level vs. Diabetes and Non-Diabetes**
 
     <img src="images/hba_pie01.png">
 
 ### 1.2.4 Blood Glucose Level Analysis 
-* Blood Glucose Level Desity Plot 
+* Blood Glucose Level Density Plot 
     <img src="images/bg_density.png">
 
 * **Statistical Testing for Blood Glucose Level**
@@ -222,13 +219,13 @@ The average age across all the entries is approximately 41.79 years.
 
     ### p-value:
 
-    The p-value is a measure of the evidence against the null hypothesis, which in this case is that    there's no difference between the two groups.
+    The p-value is a measure of the evidence against the null hypothesis, indicating there's no difference between the two groups.
 
     - **p-value: 0.0**: A p-value of 0.0 means that the likelihood of observing such extreme differences    between the groups under the assumption that they are the same (the null hypothesis) is virtually  zero. 
 
     ### Summary:
 
-    Given the high t-statistic and the p-value of nearly zero, we can confidently reject the null   hypothesis. This means that there is a statistically significant difference in the mean blood     glucose levels between people with diabetes and those without diabetes in your dataset.
+    Given the high t-statistic and the p-value of nearly zero, we can confidently reject the null   hypothesis. This means that there is a statistically significant difference in the mean blood     glucose levels between people with diabetes and those without diabetes in the dataset.
 
 * **Pie Chart For Blood Glucose Level vs. Diabetes and Non-Diabetes**
 
@@ -252,7 +249,7 @@ The average age across all the entries is approximately 41.79 years.
 * Applying PolynomialFeatures to the Standardized Columns 
 * Applying OneHotEncoding to `"gender"` and `"smoking_history"`
 * Since this dataset is highly imbalaced, Using `SMOTE` technique to create a balanced class on training dataset (This technique   will increase the number of minority classes)
-* Applying the above the GridSearchCV with 5 Cross Validation with `recall` Scoring 
+* Applying above to RandomizedGridSearchCV with 5 Cross Validation and `recall` Scoring 
 
 
 ### 1.3.3 Confusion Matrix For The Above Models
@@ -261,7 +258,7 @@ The average age across all the entries is approximately 41.79 years.
 
 ### 1.3.4 Analyzing Model Performance Based On The Confusion Matrix
 
-1. **RandomForest** and **GaussianNB** have the highest number of True Negatives (16324 and 16363 respectively), indicating that they are quite good at identifying the negative class. However, RandomForest has a lower number of False Negatives and more True Positives compared to GaussianNB.
+1. **RandomForest** and **GaussianNB** have the highest number of True Negatives (16324 and 16363 respectively), indicating that they are good at identifying the negative class. However, RandomForest has a lower number of False Negatives and more True Positives compared to GaussianNB.
 
 2. **LogisticRegression** and **DecisionTree** have balanced performance with a lower number of False Positives (2066 and 2118, respectively) compared to other models like AdaBoost and GradientBoost.
 
@@ -290,7 +287,7 @@ Note: This is a simplistic analysis. It's often good to look at other metrics li
 
 
 #### Reducing False Negative
-In a medical context like diabetes diagnosis, reducing False Negatives (FN) is crucial because a FN means that a patient who actually has diabetes is wrongly classified as not having it, which could lead to a lack of treatment and severe health risks. Here's how the models fare in terms of minimizing FN:
+In a medical context like diabetes diagnosis, reducing False Negatives (FN) is crucial because a FN means that a patient who actually has diabetes is wrongly classified as not having it, which could lead to a lack of treatment and severe health risks. Below are the model's performance in minimizing FN:
 
 #### False Negatives (Lower is Better):
 1. **AdaBoost**: 106
@@ -347,7 +344,7 @@ features below were selected by AdaBoost as important
 
 ## 1.5 Testing The Model With Test Patient 
 
-Useing `predict_proba()` to determine the percentage of the patient being wether in Diabetes Class or not
+Useing `predict_proba()` to determine the percentage of the patient being in Diabetes class or not
 
 ```python
 test_patient = pd.DataFrame(columns=[
