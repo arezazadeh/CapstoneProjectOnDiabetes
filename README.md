@@ -7,11 +7,10 @@
     - [1.2.2 Gender Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#122-Gender-Analysis)
     - [1.2.3 Hemoglobin Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#123-Hemoglobin-A1c-HbA1c-Level)
     - [1.2.4 Blood Glucose Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#124-Blood-Glucose-Level-Analysis)
-- [1.3 Models](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#124-Models)
-    - [1.3.1 Models Used For Training](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#131-Models-that-we-have-used-for-training)
-    - [1.3.2 GridSearchCV ColumnTransformer and Pipeline](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#132-Column-Transformers,-Pipeline-and-RandomizedGridSearchCV)
+- [1.3 Models](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#13-Models)
+    - [1.3.1 Models Used For Training](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#131-Models-used-for-training)
+    - [1.3.2 GridSearchCV ColumnTransformer and Pipeline](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#132-Column-Transformers-Pipeline-and-RandomizedGridSearchCV)
     - [1.3.3 Confusion Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#133-Confusion-Matrix-For-The-Above-Models)
-    - [1.3.4 Analysing Model Performance](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#133-Analyzing-Model-Performance-Based-On-The-Confusion-Matrix)
     - [1.3.4 Analysing Model Performance](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#133-Analyzing-Model-Performance-Based-On-The-Confusion-Matrix)
 
     
@@ -229,7 +228,7 @@ The average age across all the entries is approximately 41.79 years.
 
 ## 1.3 Models 
 
-### 1.3.1 Models that we have used for training:
+### 1.3.1 Models used for training
 
     1. LogisticRegression
     2. DecisionTreeClassifier
@@ -252,7 +251,7 @@ The average age across all the entries is approximately 41.79 years.
 
 <img src="images/confusion_matrix.png">
 
-### 1.3.4 Analyzing Model Performance Based On The Confusion Matrix:
+### 1.3.4 Analyzing Model Performance Based On The Confusion Matrix
 
 1. **RandomForest** and **GaussianNB** have the highest number of True Negatives (16324 and 16363 respectively), indicating that they are quite good at identifying the negative class. However, RandomForest has a lower number of False Negatives and more True Positives compared to GaussianNB.
 
