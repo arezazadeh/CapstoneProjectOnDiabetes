@@ -13,7 +13,7 @@
 - [1.3 Models](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#13-Models)
     - [1.3.1 Models Used For Training](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#131-Models-used-for-training)
     - [1.3.2 GridSearchCV ColumnTransformer and Pipeline](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#132-Column-Transformers-Pipeline-and-RandomizedGridSearchCV)
-    - [1.3.3 Confusion Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#133-Confusion-Matrix-For-The-Above-Models)
+    - [1.3.3 Confusion Matrix And Model Scores](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#133-Confusion-Matrix-And-Score-For-The-Above-Models)
     - [1.3.4 Analysing Model Performance](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#134-Analyzing-Model-Performance-Based-On-The-Confusion-Matrix)
 
 - [1.4 Model Selection](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#14-Model-Selection)
