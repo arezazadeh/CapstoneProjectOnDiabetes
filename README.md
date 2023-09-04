@@ -1,4 +1,5 @@
 ## Table of Contents: 
+- [0.0 Diclaimer](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#00-Disclaimer)
 - [1.0 Problem Statement](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#10-Problem-Statement)
 
 - [1.1 Features Being Used](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#11-Features-Being-Used)
@@ -24,10 +25,22 @@
 
 - [1.6 Recommendations And Next Steps](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#16-Recommendations-And-Next-Steps)
 
+- [1.7 Medical Standard Range](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#17-Medical-Standard-Range-For-Glucose-And-Hemoglobin-Level)
+
+- [1.8 Experiment With Dataset](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#18-Experiment-with-Dataset)
+    - [1.8.1 Re-Classifying The Dataset](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#181-How-Classification-Was-Done)
+    - [1.8.2 Re-Classifying The Dataset](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#182-Training-DecisionTreeClassifier-Model-Only-on-HbA1c-and-blood_glucose_level)
+
+
+
+
 
 
     
-    
+## 0.0 Disclaimer
+
+After analyzing this dataset in details, I found out the dataset is not 100% accurate. For instance, a patient with high BMI, HbA1c and Blood Glucose Level is marked as `non-diabetic` which is not correct. Hence the model is not able to find the propper patterns in the dataset. 
+
 
 ## 1.0 Problem Statement
 
@@ -408,3 +421,79 @@ elif 50 > risk_percentage > 0:
 5. **Additional Features or Data**: Sometimes additional information can help the model better separate the classes.
 
 Remember that in medical contexts, it's not only about the model's statistical performance but also about how clinicians will use this information. Therefore, domain expertise is crucial in interpreting these results.
+
+## 1.7 Medical Standard Range For Glucose And Hemoglobin Level
+
+The ranges for HbA1c and blood glucose levels can vary slightly depending on the laboratory and country, but generally, they are as follows:
+
+### HbA1c Levels
+
+- **Normal**: Below 5.7%
+- **Prediabetes**: 5.7% to 6.4%
+- **Diabetes**: 6.5% or higher
+
+### Blood Glucose Levels:
+
+**Fasting Plasma Glucose Test:**
+
+- **Normal**: Below 100 mg/dL (5.6 mmol/L)
+- **Prediabetes (Impaired Fasting Glucose)**: 100–125 mg/dL (5.6–6.9 mmol/L)
+- **Diabetes**: 126 mg/dL (7.0 mmol/L) or higher
+
+**Oral Glucose Tolerance Test (2 hours after drinking 75 grams of glucose solution):**
+
+- **Normal**: Below 140 mg/dL (7.8 mmol/L)
+- **Prediabetes (Impaired Glucose Tolerance)**: 140–199 mg/dL (7.8–11.0 mmol/L)
+- **Diabetes**: 200 mg/dL (11.1 mmol/L) or higher
+
+**Random Blood Sugar Test:**
+
+- **Normal**: Varies, but typically below 125 mg/dL
+- **Diabetes**: 200 mg/dL (11.1 mmol/L) or higher (along with symptoms of hyperglycemia)
+
+It's crucial to note that a single test result is generally not enough for a diabetes diagnosis. Most guidelines recommend that a high blood glucose or HbA1c level be confirmed with repeat testing.
+
+The results should be interpreted in the context of the individual's medical history, and other factors like pregnancy, illness, medications, etc., could affect the results. Always consult with healthcare providers for a comprehensive diagnosis and treatment plan.
+
+
+## 1.8 Experiment with Dataset
+
+Since the dataset is not 100% accurate, I have decided to use the medical standard ranges of `HbA1c` and `blood glucose level` and create a separet column in the dataset with three classes:
+- "Non-Diabetic"
+- "Pre-Diabetic"
+- "Diabetic"
+
+### 1.8.1 How Classification Was Done
+
+- If an individual has an HbA1c level of 6.5% or higher and a blood glucose level of 126 mg/dL or higher, they are classified as 'diabetic.'
+- If the HbA1c level falls within the range of 5.7% to less than 6.5%, irrespective of their blood glucose level, they are classified as 'pre-diabetic.'
+- If neither of the above conditions is met, the individual is classified as 'non-diabetic.'
+
+```python
+def change_class(row):
+    if row['HbA1c_level'] >= 6.5 and row['blood_glucose_level'] >= 126:
+        return 'diabetic'
+    
+    elif (row['HbA1c_level'] >= 5.7 and row['HbA1c_level'] < 6.5):
+        return 'pre-diabetic'
+    
+    else:
+        return 'non-diabetic'
+
+new_df['diabetes_class'] = new_df.apply(lambda row: change_class(row), axis=1)
+```
+
+### 1.8.2 Training DecisionTreeClassifier Model Only on `HbA1c` and `blood_glucose_level` 
+
+* **Confusion Matrix**
+Below is the confusion matrix of Test Dataset, as it indicates, the model has predicted everything correctly with accuracy of 100%
+
+    <img src="images/confusion_matrix2.png">
+
+<br>
+
+* **Transition Between Non-Diabetic, Pre-Diabetic and Diabetic on Hemoglobin and Glucose Level** 
+As shown below, the Hemoglobin and Glucose levels increase as for each class
+    <img src="images/transition.png">
+
+
