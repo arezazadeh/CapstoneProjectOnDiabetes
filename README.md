@@ -252,9 +252,15 @@ The average age across all the entries is approximately 41.79 years.
 * Applying above to RandomizedGridSearchCV with 5 Cross Validation and `recall` Scoring 
 
 
-### 1.3.3 Confusion Matrix For The Above Models
+### 1.3.3 Confusion Matrix And Score For The Above Models
 
-<img src="images/confusion_matrix.png">
+* **Confusion Matrix**
+    <img src="images/confusion_matrix.png">
+
+* **Models Score on Train and Test**
+    <img src="images/model_scores.png">
+
+
 
 ### 1.3.4 Analyzing Model Performance Based On The Confusion Matrix
 
