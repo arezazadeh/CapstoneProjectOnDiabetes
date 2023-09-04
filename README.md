@@ -1,25 +1,33 @@
 ## Table of Contents: 
 - [1.0 Problem Statement](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#10-Problem-Statement)
+
 - [1.1 Features Being Used](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#11-Features-Being-Used)
+
 - [1.2 EDA](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#12-EDA)
     - [1.2.0 Correlation Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#120-correlation-matrix)
     - [1.2.1 Age Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#121-Age-Analysis)
     - [1.2.2 Gender Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#122-Gender-Analysis)
     - [1.2.3 Hemoglobin Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#123-Hemoglobin-A1c-HbA1c-Level)
     - [1.2.4 Blood Glucose Level Analysis](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#124-Blood-Glucose-Level-Analysis)
+
 - [1.3 Models](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#13-Models)
     - [1.3.1 Models Used For Training](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#131-Models-used-for-training)
     - [1.3.2 GridSearchCV ColumnTransformer and Pipeline](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#132-Column-Transformers-Pipeline-and-RandomizedGridSearchCV)
     - [1.3.3 Confusion Matrix](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#133-Confusion-Matrix-For-The-Above-Models)
     - [1.3.4 Analysing Model Performance](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#134-Analyzing-Model-Performance-Based-On-The-Confusion-Matrix)
 
+- [1.4 Model Selection](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#14-Model-Selection)
+    - [1.4.1 AdaBoost Feature Importance](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#141-Extracting-AdaBoost-Feature-Importance)
+    - [1.4.2 Explaining the Coefficients](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#142-Explaining-the-Coefficients-of-AdaBoost-Model)
+
+- [1.5 Testing The Model](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#15-Testing-The-Model-With-Test-Patient)
+
+- [1.6 Recommendations And Next Steps](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#16-Recommendations-And-Next-Steps)
+
+
+
     
     
-
-
-
-
-
 
 ## 1.0 Problem Statement
 
@@ -265,7 +273,7 @@ The average age across all the entries is approximately 41.79 years.
 
 - If identifying True Positives is critical, then **AdaBoost** and **GradientBoost** do the best job, as they have the highest numbers of True Positives (1615 and 1591).
 
-### Specificity:
+#### Specificity:
 
 - If avoiding False Positives is important, then **RandomForest** and **GaussianNB** are your best bet, with RandomForest slightly edging out due to a lower number of False Positives (1185 vs 1146).
 
@@ -273,7 +281,7 @@ The average age across all the entries is approximately 41.79 years.
 
 - **LogisticRegression** seems to provide a more balanced performance, with a high number of True Negatives and a comparatively lower number of False Positives.
 
-### Error Rates:
+#### Error Rates:
 
 - **GradientBoost** has the highest number of False Positives (3669), making it more prone to Type I errors.
 - **GaussianNB** has the highest number of False Negatives (655), making it more prone to Type II errors.
@@ -284,7 +292,7 @@ Note: This is a simplistic analysis. It's often good to look at other metrics li
 #### Reducing False Negative
 In a medical context like diabetes diagnosis, reducing False Negatives (FN) is crucial because a FN means that a patient who actually has diabetes is wrongly classified as not having it, which could lead to a lack of treatment and severe health risks. Here's how the models fare in terms of minimizing FN:
 
-### False Negatives (Lower is Better):
+#### False Negatives (Lower is Better):
 1. **AdaBoost**: 106
 2. **LogisticRegression**: 135
 3. **GradientBoost**: 130
@@ -303,9 +311,90 @@ In a medical context like diabetes diagnosis, reducing False Negatives (FN) is c
 
 3. **LogisticRegression**: Provides a balanced performance but still has room for improvement in reducing FN.
 
-#### Recommendations:
 
-1. **Fine-Tuning**: For the models with the lowest FN, like AdaBoost, you could consider fine-tuning hyperparameters to see if you can reduce FN even more without significantly affecting other metrics.
+## 1.4 Model Selection
+
+based on the analysis done above, and the number of False Negatives, I have decided to select `AdaBoost` as my best model for prediction 
+
+<img src="images/ada_model.png">
+
+### 1.4.1 Extracting AdaBoost Feature Importance
+
+features below were selected by AdaBoost as important
+
+<img src="images/feature_importance.png">
+
+### 1.4.2 Explaining the Coefficients of AdaBoost Model
+
+1. **`age*age*age` (0.23)**: This is the cubic term for age. It has the highest importance score of 0.23, indicating it is the most influential factor according to this AdaBoost model. A high score suggests that as the age varies, it has a considerable impact on the model's decision-making process.
+
+2. **`age*age*HbA1c_level` (0.19)**: This is an interaction term between the square of age and the HbA1c level. The high importance score of 0.19 suggests that the interaction between these features is significantly associated with the target outcome.
+
+3. **`HbA1c_level*blood_glucose_level*blood_glucose_level` (0.16)**: This term shows interaction between the HbA1c level and the square of blood glucose level. With a score of 0.16, it's also considered an important factor in the model's predictions.
+
+4. **`age*HbA1c_level` (0.12)**: This is an interaction term between age and the HbA1c level. It signifies that the relationship between these two variables is important for the model's decision-making, but less so compared to the higher-ranking features.
+
+5. **`age` (0.11)**: This is the age feature, with a score of 0.11, which indicates that age alone is also an important factor for the model.
+
+6. **`blood_glucose_level*blood_glucose_level*blood_glucose_level` (0.08)**: This is the cubic term for blood glucose level. It has a moderate importance score of 0.08, suggesting that it still has some influence on the model's outcome.
+
+7. **`HbA1c_level*HbA1c_level*HbA1c_level` (0.08)**: This is the cubic term for HbA1c level, also with a score of 0.08, which shows that it plays a role in the model's prediction but is not as crucial as some other features.
+
+8. **`bmi*bmi*HbA1c_level` (0.02)**: This is an interaction term between the square of BMI and HbA1c level. With a lower importance score of 0.02, it has a comparatively minor impact on the model's decision.
+
+9. **`blood_glucose_level` (0.01)**: This is the blood glucose level, and its very low score of 0.01 suggests that it doesn't contribute much to the model's prediction when considered alone.
+
+
+## 1.5 Testing The Model With Test Patient 
+
+Useing `predict_proba()` to determine the percentage of the patient being wether in Diabetes Class or not
+
+```python
+test_patient = pd.DataFrame(columns=[
+    "gender", 
+    "age",
+    "hypertension",
+    "heart_disease",
+    "smoking_history",
+    "bmi",
+    "HbA1c_level",
+    "blood_glucose_level"
+], index=[0])
+
+test_patient["gender"] = "Male"
+test_patient["hypertension"] = 1
+test_patient["heart_disease"] = 0
+test_patient["age"] = 40
+test_patient["blood_glucose_level"] = 140
+test_patient["HbA1c_level"] = 6
+test_patient["bmi"] = 67
+test_patient["smoking_history"] = "never"
+
+ada_preds = ada_model.predict_proba(test_patient)
+
+
+# Probability that the entry belongs to the diabetic class
+risk_percentage = ada_preds[0][1] * 100
+
+# Interpretation
+if risk_percentage == 0:
+    print("You Are Not Diabetic.\n\n")
+    
+elif risk_percentage == 100:
+    print("You Are Diabetic.\n\n")
+    
+elif 100 > risk_percentage > 50:
+    print(f"You have a high risk of {risk_percentage:.2f}% of becoming diabetic.\n\n")
+    
+elif 50 > risk_percentage > 0:
+    print(f"You have a low risk of {risk_percentage:.2f}% of becoming diabetic.\n\n")
+```
+
+<p style="font-size:15px"><code>You have a low risk of 39.79% of becoming diabetic.</code></p>
+
+## 1.6 Recommendations And Next Steps:
+
+1. **Fine-Tuning**: For the models with the lowest FN, like AdaBoost, we could consider fine-tuning hyperparameters to see if we can reduce FN even more without significantly affecting other metrics.
    
 2. **Cost-Sensitive Learning**: Implement cost-sensitive learning where the misclassification cost for FN is higher than for FP.
 
