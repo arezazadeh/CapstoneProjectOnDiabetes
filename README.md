@@ -31,7 +31,7 @@
     - [1.8.1 Re-Classifying The Dataset](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#181-How-Classification-Was-Done)
     - [1.8.2 Re-Classifying The Dataset](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#182-Training-DecisionTreeClassifier-Model-Only-on-HbA1c-and-blood_glucose_level)
 
-
+- [1.9 Deployed Model](https://github.com/arezazadeh/CapstoneProjectOnDiabetes#19-Deployed-Model)
 
 
 
@@ -497,3 +497,15 @@ As shown below, the Hemoglobin and Glucose levels increase as for each class
     <img src="images/transition.png">
 
 
+## 1.9 Deployed Model
+
+<br>
+
+Both of these models (DecisionTreeClassifier on Re-Classified Dataset) have been deployed. 
+<br>
+You can test these on a test patient data. 
+
+<a href="http://klevernet.io/ai_ml_deployments/predict-diabetes/" target="_blank">Deployed Models</a>
+
+<br>
+<h2>Thank you. </h2>
